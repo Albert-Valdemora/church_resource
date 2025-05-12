@@ -1,6 +1,6 @@
 import supabase from "../supabase-client";
 import { Fecha } from "../components/Fecha";
-import { Card } from "../components/card";
+import { Card } from "../components/Card";
 import { Button } from "../components/ui/button";
 import React, { useEffect, useState } from "react";
 
