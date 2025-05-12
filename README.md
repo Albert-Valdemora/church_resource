@@ -59,6 +59,14 @@ yarn dev
 ```
 
 ## 📸 Capturas de Pantalla
+![6](https://github.com/user-attachments/assets/6352d44f-1c78-4adf-b349-777561245991)
+![1](https://github.com/user-attachments/assets/983c20ed-bcb3-4af0-bf0f-279fb0bbb3f4)
+![7](https://github.com/user-attachments/assets/048ca0e5-0fec-4882-a884-64711d6ab2e8)
+![8](https://github.com/user-attachments/assets/1f5d6dfa-6297-438a-97d9-7d64d8cc53e0)
+![2](https://github.com/user-attachments/assets/00d12683-56a7-4526-9e16-4e053459c4b9)
+![3](https://github.com/user-attachments/assets/c572a9da-20b1-40e5-88e9-6bb10d4b7f2d)
+![4](https://github.com/user-attachments/assets/d0ad82a8-50bd-417c-8755-2bc76ba29233)
+![5](https://github.com/user-attachments/assets/9a919266-21b8-407e-a54e-30626b6136a8)
 
   
 
