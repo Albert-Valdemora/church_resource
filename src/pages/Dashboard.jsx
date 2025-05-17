@@ -50,7 +50,7 @@ export const Dashboard = () => {
     if (error) {
       console.error("Error fetching resources: ", error);
     } else {
-      // Formatear las fechas al formato YYYY/MM/DD
+      
       const formattedData = data.map((resource) => ({
         ...resource,
         date: resource.date ? resource.date.replace(/-/g, "/") : "",
