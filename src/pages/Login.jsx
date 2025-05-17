@@ -35,7 +35,7 @@ export const Login = () => {
       </span>
 
       {errorMsg && <p className="text-red-500">{errorMsg}</p>}
-      <div className="  sm:w-[400px] h-[35%]">
+      <div className=" flex justify-center items-center w-[400px] h-[300px]">
         <form
           className="sm:w-full w-[300px] h-full border-2 rounded-md flex justify-center items-center flex-col gap-3"
           onSubmit={handleLogin}
