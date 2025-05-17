@@ -3,6 +3,8 @@ import { Fecha } from "../components/Fecha";
 import { Card } from "../components/Card";
 import { Button } from "../components/ui/button";
 import React, { useEffect, useState } from "react";
+import { ModeToggle } from "../components/mode-toggle";
+
 
 export const Dashboard = () => {
   const [seccion, setSeccion] = useState(
@@ -70,10 +72,13 @@ export const Dashboard = () => {
 
   return (
     <div className="scroll-p-0">
+      <div className="flex items-center justify-between md:px-10 px-3 ">
       <h2 className="text-3xl font-bold p-5">Dashboard</h2>
+      <ModeToggle />
+      </div>
       <div className="w-screen min-h-screen flex flex-col items-center gap-5 p-4 justify-center">
         <Fecha onDateChange={handleDateChange} currentDate={selectedDate} />
-        <div className="w-[400px] rounded-lg p-4 flex justify-center gap-6 bg-slate-100">
+        <div className="sm:w-[400px] w-[340px] rounded-lg p-4 flex justify-center gap-6 bg-slate-100">
           <div
             className="cursor-pointer hover:scale-[1.1] transition-transform"
             onClick={() => handleSeccionChange("All")}
@@ -141,7 +146,7 @@ export const Dashboard = () => {
           </div>
         </div>
 
-        <div className="flex gap-6 flex-wrap justify-center p-3">
+        <div className="flex gap-6 flex-wrap justify-center ">
           <div
             className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300 ${
               visible ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-4"
@@ -152,13 +157,13 @@ export const Dashboard = () => {
                 key={i}
                 className="transform transition-all duration-300 hover:scale-105"
               >
-                <Card className="flex" {...item} />
+                <Card className="flex mx-auto" {...item} />
               </div>
             ))}
           </div>
         </div>
 
-        <div>
+        <div className="mb-5">
           <Button
             onClick={handleViewAllResources}
             className="transition-all duration-300 hover:scale-105"

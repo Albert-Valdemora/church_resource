@@ -2,7 +2,7 @@ import { ModeToggle } from "../mode-toggle";
 import { Button } from "./button";
 import { Avatar, AvatarFallback, AvatarImage } from "./avatar";
 import { useNavigate } from "react-router-dom";
-
+import { IoMdExit } from "react-icons/io";
 import supabase from "../../supabase-client";
 
 export const Navbar = () => {
@@ -21,10 +21,10 @@ export const Navbar = () => {
 
   return (
     <nav className="bg-white dark:bg-gray-800 shadow-md">
-      <div className="w-screen px-4 py-2 flex justify-between items-center">
+      <div className="w-screen px-10 py-2 flex justify-between items-center">
         <h2 className="text-xl font-bold hover:cursor-pointer" onClick={() => navigate('/')}>Church Resources</h2>
         <div className="flex items-center gap-4">
-          <ModeToggle />
+          {/* <ModeToggle /> */}
           <div className="flex items-center gap-2">
             <Avatar className="h-8 w-8">
               <AvatarImage src="https://github.com/shadcn.png" alt="@shadcn" />
@@ -35,7 +35,7 @@ export const Navbar = () => {
               onClick={handleLogout}
               className="ml-2"
             >
-              Cerrar Sesión
+              <IoMdExit />
             </Button>
           </div>
         </div>

@@ -17,7 +17,7 @@ export const Card = ({ id, title, type, date, icon }) => {
   const handleViewResource = () => [navigate(`/resource/${id}`)];
 
   return (
-    <div className="w-[420px] h-[220px] p-5 flex flex-col border-2 items-start justify-center gap-4 rounded-lg">
+    <div className="sm:w-[420px] sm:h-[220px] w-[370px] h-[200px] p-5 flex flex-col border-2 items-start justify-center gap-4 rounded-lg">
       <div className="flex items-center gap-3">
         {iconMap[icon]}
         <h3 className="font-bold text-lg">{title}</h3>
