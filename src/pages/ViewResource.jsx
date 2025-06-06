@@ -89,6 +89,10 @@ export const ViewResource = () => {
               {resource.type === "Pdf" && fileUrl && (
                 <iframe src={fileUrl} className="w-full h-[600px] border-0" />
               )}
+
+
+
+
               {resource.type === "Flyer" && fileUrl && (
                 <div className="flex flex-col items-center gap-4">
                   <img
@@ -103,6 +107,9 @@ export const ViewResource = () => {
                   </Button>
                 </div>
               )}
+
+
+
               {resource.type === "Hymn" && fileUrl && (
                 <div className="flex flex-col items-center gap-4">
                   <audio controls className="w-full">
@@ -115,6 +122,22 @@ export const ViewResource = () => {
                     </a>
                   </Button>
                 </div>
+              )}
+
+
+              {resource.type === "Link" && (
+                <div className="flex flex-col items-center gap-4">
+                  <p className="text-blue-500 underline">
+                    <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                      {resource.link}
+                    </a>
+                  </p>
+                  <Button>
+                    <a href={resource.link} target="_blank" rel="noopener noreferrer">
+                      Abrir Link
+                    </a>
+                  </Button>
+                  </div>
               )}
             </div>
           </CardContent>

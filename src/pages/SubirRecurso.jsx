@@ -22,6 +22,7 @@ export const SubirRecurso = () => {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const [date, setDate] = useState("");
+  const [link, setLink] = useState("");
   const [file, setFile] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -33,7 +34,8 @@ export const SubirRecurso = () => {
     setError("");
 
     try {
-      if (file) {
+      // Si es un recurso de archivo
+      if (file && type !== "Link") {
         const fileExt = file.name.split(".").pop();
         const fileName = `${Math.random()}.${fileExt}`;
         const { error: uploadError } = await supabase.storage
@@ -51,25 +53,45 @@ export const SubirRecurso = () => {
             type,
             date: formattedDate,
             file_path: fileName,
+            link: null,
           },
         ]);
 
         if (dbError) throw dbError;
-
-        setTitle("");
-        setType("");
-        setDate("");
-        setFile(null);
-
-        toast("El evento ha sido creado", {
-  description: `${title} - ${fecha}`,
-  action: {
-    label: '❌',
-    onClick: () => toast.dismiss(),
-  },
-});
-        
       }
+
+      // Si es un recurso tipo Link
+      if (type === "Link" && link) {
+        // Formatear la fecha al formato YYYY/MM/DD
+        const formattedDate = date.replace(/-/g, "/");
+
+        const { error: dbError } = await supabase.from("resources").insert([
+          {
+            title,
+            type,
+            date: formattedDate,
+            file_path: null,
+            link,
+          },
+        ]);
+
+        if (dbError) throw dbError;
+      }
+
+      setTitle("");
+      setType("");
+      setDate("");
+      setLink("");
+      setFile(null);
+
+      toast("El evento ha sido creado", {
+        description: `${title} - ${fecha}`,
+        action: {
+          label: '❌',
+          onClick: () => toast.dismiss(),
+        },
+      });
+
     } catch (error) {
       setError(error.message);
     } finally {
@@ -108,6 +130,7 @@ export const SubirRecurso = () => {
                   <SelectItem value="Flyer">Flyer</SelectItem>
                   <SelectItem value="Pdf">PDF</SelectItem>
                   <SelectItem value="Hymn">Himno</SelectItem>
+                  <SelectItem value="Link">Link</SelectItem>
                 </SelectContent>
               </Select>
             </div>
@@ -127,7 +150,21 @@ export const SubirRecurso = () => {
               <Input
                 type="file"
                 onChange={(e) => setFile(e.target.files[0])}
-                required
+                required={type !== "Link"}
+                disabled={type === "Link"}
+              />
+            </div>
+
+
+            <div className="space-y-2">
+              <label className="text-sm font-medium">Link</label>
+              <Input
+                type="link"
+                value={link}
+                onChange={(e) => setLink(e.target.value)}
+                placeholder="Ingrese el link del recurso (opcional)"
+                disabled={type !== "Link"}
+                required={type === "Link" ? true : false}
               />
             </div>
 

@@ -100,6 +100,8 @@ export const Dashboard = () => {
             )}
           </div>
 
+
+
           <div
             className="cursor-pointer hover:scale-[1.1] transition-transform"
             onClick={() => handleSeccionChange("Flyer")}
@@ -114,6 +116,9 @@ export const Dashboard = () => {
               </strong>
             )}
           </div>
+
+
+
 
           <div
             className="cursor-pointer hover:scale-[1.1] transition-transform"
@@ -130,6 +135,9 @@ export const Dashboard = () => {
             )}
           </div>
 
+
+
+
           <div
             className="cursor-pointer hover:scale-[1.1] transition-transform"
             onClick={() => handleSeccionChange("Hymn")}
@@ -144,7 +152,28 @@ export const Dashboard = () => {
               </strong>
             )}
           </div>
+
+
+
+
+          <div
+            className="cursor-pointer hover:scale-[1.1] transition-transform"
+            onClick={() => handleSeccionChange("Link")}
+          >
+            {seccion === "Link" ? (
+              <strong className="text-xl p-2 bg-slate-300 dark:text-black rounded-lg transition-all duration-300 ease-in-out scale-110">
+                Link
+              </strong>
+            ) : (
+              <strong className="text-xl p-2 hover:bg-slate-300 dark:text-black rounded-lg transition-all duration-300">
+                Link
+              </strong>
+            )}
+          </div>
         </div>
+
+
+
 
         <div className="flex gap-6 flex-wrap justify-center ">
           <div
