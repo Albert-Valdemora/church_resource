@@ -14,6 +14,7 @@ export const Navbar = () => {
       const { error } = await supabase.auth.signOut();
       if (error) throw error;
       navigate('/login');
+      localStorage.clear();
     } catch (error) {
       console.error('Error al cerrar sesión:', error.message);
     }
